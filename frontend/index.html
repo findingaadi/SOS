@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Earthquake Notification - By Adarsha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #map { height: 300px; margin-bottom: 15px; }
+    .form-group { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Earthquake Notification Service</h2>
+  <p>Please enter your details and choose a location on the map.</p>
+
+  <div class="form-group">
+    <label>Name: <input type="text" id="name" /></label>
+  </div>
+
+  <div class="form-group">
+    <label>Email: <input type="email" id="email" /></label>
+  </div>
+
+    <div class="form-group">
+    <label>Phone Number: <input type="number" id="phone" /></label>
+  </div>
+
+  <div class="form-group">
+    <label>Radius (KM): <input type="number" id="radius" /></label>
+  </div>
+
+  <div id="map"></div>
+
+  <input type="hidden" id="lat">
+  <input type="hidden" id="lon">
+
+  <button onclick="submitForm()">Submit</button>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <script>
+    const defaultLat = 55.9533, defaultLon = -3.1883;
+    const map = L.map('map').setView([defaultLat, defaultLon], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const marker = L.marker([defaultLat, defaultLon], { draggable: true }).addTo(map);
+
+    document.getElementById('lat').value = defaultLat;
+    document.getElementById('lon').value = defaultLon;
+
+    marker.on('dragend', function(e) {
+      const { lat, lng } = e.target.getLatLng();
+      document.getElementById('lat').value = lat;
+      document.getElementById('lon').value = lng;
+    });
+
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const radius = document.getElementById('radius').value;
+      const phone = document.getElementById('phone').value;
+      const lat = document.getElementById('lat').value;
+      const lon = document.getElementById('lon').value;
+
+      if (!name || !email || !radius || !phone) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      alert(`Submitted!\nName: ${name}\nEmail: ${email}\nLat: ${lat}, Lon: ${lon}\nRadius: ${radius}km, \nPhone Number: ${phone}` );
+
+    }
+  </script>
+
+</body>
+</html>
