@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lambda POST Test</title>
+</head>
+<body>
+  <h1>POST Request Test</h1>
+  <button onclick="sendPost()">Send POST</button>
+  <pre id="response"></pre>
+
+  <script>
+    async function sendPost() {
+      try {
+        const response = await fetch("https://8613n704t9.execute-api.eu-north-1.amazonaws.com/tester", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ test: "Hello from browser!" })
+        });
+
+        const result = await response.json();
+        document.getElementById("response").textContent = JSON.stringify(result, null, 2);
+      } catch (error) {
+        document.getElementById("response").textContent = "Error: " + error;
+      }
+    }
+  </script>
+</body>
+</html>
