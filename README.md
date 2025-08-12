@@ -25,3 +25,10 @@ AWS EC2 (WebSocket client for earthquake feed)
 
 Data Source:
 European Seismological Agency Standing Order WebSocket API
+
+**Features**
+User-defined radius: Alerts are triggered only if the earthquake falls within the chosen range.
+Automated outbound voice calls using Amazon Connect.
+Interactive map for location selection via Leaflet.
+Serverless subscriber storage in DynamoDB.
+Real-time monitoring via persistent WebSocket connection.
