@@ -23,7 +23,7 @@
   </div>
 
   <div class="form-group">
-    <label>Next of Kin Phone Number: <input type="tel" id="phone" /></label>
+    <label>Next of Kin Phone Number: +44<input type="tel" id="phone" maxlength="10"/></label>
   </div>
 
   <div class="form-group">
@@ -61,7 +61,7 @@
     async function submitForm() {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
+      const phone = "+44"+document.getElementById('phone').value;
       const radius = document.getElementById('radius').value;
       const lat = document.getElementById('lat').value;
       const lon = document.getElementById('lon').value;
@@ -83,7 +83,7 @@
       };
 
       try {
-        const response = await fetch("https://xxxxxx.execute-api.eu-north-1.amazonaws.com/xxx", {
+        const response = await fetch("https://1mqxs8roik.execute-api.eu-north-1.amazonaws.com/sos_form", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
