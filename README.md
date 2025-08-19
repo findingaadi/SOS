@@ -4,14 +4,14 @@ This is a serverless project that provides real-time earthquake monitoring and a
 
 ## Overview
 
-The **Earthquake Notification & SOS Alert System** monitors real-time earthquake data from the European Seismological Agency API. If an earthquake occurs within a user's defined radius, the system automatically triggers an outbound voice call to alert them.
+The **Earthquake Notification & SOS Alert System** monitors real-time earthquake data from the European Seismological Agency API. If an earthquake occurs within a user's defined radius, the system automatically triggers an outbound voice call to alert their nominated contact.
 
-Users can register their details—including their name, location, and the desired alert radius—through a web frontend powered by **Leaflet.js**. This information is securely stored in an **Amazon DynamoDB** database. A dedicated **AWS EC2** instance runs a WebSocket client that listens for earthquake events and initiates alerts via **Amazon Connect**.
+Users can register their details—including their name, location, and the desired alert radius—through a web frontend powered by **Leaflet.js**. This information is securely stored in an **Amazon DynamoDB** database. A dedicated **AWS EC2** instance runs a WebSocket client that listens for earthquake events and initiates alerts via **Amazon Connect** or **Twilio**.
 
 ## Key Features
 
 * **User-Defined Radius**: Alerts are triggered only when an earthquake falls within a user's specified range.
-* **Automated Voice Calls**: Uses Amazon Connect for automated, outbound voice notifications.
+* **Automated Voice Calls**: Uses Amazon Connect or Twilio for automated, outbound voice notifications.
 * **Interactive Map**: An intuitive, interactive map built with Leaflet.js simplifies location selection.
 * **Serverless Subscriber Storage**: User data is stored efficiently and scalably in DynamoDB.
 * **Real-Time Monitoring**: A persistent WebSocket connection ensures the system is always monitoring for the latest earthquake events.
@@ -32,4 +32,5 @@ Users can register their details—including their name, location, and the desir
 
 ### Data Source
 * European Seismological Agency Standing Order WebSocket API
+
 
