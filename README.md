@@ -1,5 +1,7 @@
 # 🌍 Earthquake Notification & SOS Alert System
 
+<img width="5142" height="2813" alt="Blank diagram (1)" src="https://github.com/user-attachments/assets/1c66f37f-4fd3-430a-a77a-7a7e14ef545d" />
+
 This is a serverless project that provides real-time earthquake monitoring and automated voice alerts using AWS services.
 
 ## Overview
@@ -32,5 +34,6 @@ Users can register their details—including their name, location, and the desir
 
 ### Data Source
 * European Seismological Agency Standing Order WebSocket API
+
 
 
