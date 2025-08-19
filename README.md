@@ -27,8 +27,9 @@ Users can register their details—including their name, location, and the desir
 * **AWS Lambda**: Handles the user registration endpoint.
 * **AWS API Gateway**: Exposes the Lambda function to the web frontend.
 * **Amazon DynamoDB**: Stores all subscriber information.
-* **Amazon Connect**: Used for sending automated outbound voice calls.
+* **Amazon Connect / Twilio**: Used for sending automated outbound voice calls.
 * **AWS EC2**: Hosts the WebSocket client that processes the earthquake feed.
 
 ### Data Source
 * European Seismological Agency Standing Order WebSocket API
+
